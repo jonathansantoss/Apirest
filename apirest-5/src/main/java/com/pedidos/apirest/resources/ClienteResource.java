@@ -23,7 +23,7 @@ public class ClienteResource {
 	public List<Cliente> Listar() {
 		return clienteRepository.findAll();
 	}
-
+ 
 	@PostMapping("/Cliente")
 	public Cliente SalvarCliente(@RequestBody Cliente cliente) {
 		return clienteRepository.save(cliente);
