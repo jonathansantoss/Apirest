@@ -2,7 +2,9 @@ package com.pedidos.apirest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -42,6 +44,7 @@ public class PedidoRepositoryTest {
 		cliente.setEndereco("Teste");
 
 		Produto produto = new Produto();
+		produto.setId(1L);
 		produto.setCodigo(1L);
 		produto.setNome("teste");
 		produto.setPreco(20.00);
@@ -61,7 +64,7 @@ public class PedidoRepositoryTest {
 		produto2.setCodigo(1L);
 		produto2.setNome("teste");
 		produto2.setPreco(20.00);
-
+		
 		this.pedidoRepository.save(pedido);
 		this.produtoRepository.save(produto);
 		this.clienteRepository.save(cliente);
@@ -73,7 +76,9 @@ public class PedidoRepositoryTest {
 		assertThat(pedido.getCodigoCliente()).isEqualTo(cliente2);
 
 		// Produto
-		assertThat(pedido.getCodigosProdutos()).isEqualTo(Arrays.asList(produto2));
+		
+		for (Produto item : pedido.getCodigosProdutos()) {  assertThat(item).isEqualTo(produto2); }
+		
 	}
 
 	@Test
