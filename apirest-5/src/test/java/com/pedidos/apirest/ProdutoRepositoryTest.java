@@ -29,13 +29,13 @@ public class ProdutoRepositoryTest {
 		Produto produto = new Produto();
 		produto.setId(1L);
 		produto.setCodigo(1L);
-		produto.setNome("teste");
+		produto.setNome("HD");
 		produto.setPreco(20.00);
 
 		Produto produto2 = new Produto();
 		produto2.setId(1L);
 		produto2.setCodigo(1L);
-		produto2.setNome("teste");
+		produto2.setNome("HD");
 		produto2.setPreco(20.00);
 
 		this.produtoRepository.save(produto);
@@ -43,23 +43,23 @@ public class ProdutoRepositoryTest {
 		// produto
 		assertThat(produto).isEqualTo(produto2);
 	}
-	
+
 	@Test
 	public void Pesquisar() throws Exception {
 		Produto produto = new Produto();
 		produto.setId(1L);
 		produto.setCodigo(1L);
-		produto.setNome("teste");
+		produto.setNome("HD");
 		produto.setPreco(20.00);
 
 		Produto produto2 = new Produto();
 		produto2.setId(1L);
 		produto2.setCodigo(1L);
-		produto2.setNome("teste");
+		produto2.setNome("HD");
 		produto2.setPreco(20.00);
 
 		this.produtoRepository.save(produto);
-		
+
 		Produto produto3 = new Produto();
 		produto3 = this.produtoRepository.findOne(produto2.getId());
 	}

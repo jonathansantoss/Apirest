@@ -2,8 +2,6 @@ package com.pedidos.apirest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.Arrays;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +11,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.pedidos.apirest.models.Cliente;
-import com.pedidos.apirest.models.Pedidos;
-import com.pedidos.apirest.models.Produto;
 import com.pedidos.apirest.repositories.ClienteRepository;
-import com.pedidos.apirest.repositories.PedidoRepository;
-import com.pedidos.apirest.repositories.ProdutoRepository;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -32,12 +26,12 @@ public class ClienteRepositoryTest {
 		Cliente cliente = new Cliente();
 		cliente.setId(1L);
 		cliente.setCodigo(1L);
-		cliente.setEndereco("Teste");
+		cliente.setEndereco("Pernanbuco");
 
 		Cliente cliente2 = new Cliente();
 		cliente2.setId(1L);
 		cliente2.setCodigo(1L);
-		cliente2.setEndereco("Teste");
+		cliente2.setEndereco("Pernanbuco");
 
 		this.clienteRepository.save(cliente);
 
@@ -50,12 +44,12 @@ public class ClienteRepositoryTest {
 		Cliente cliente = new Cliente();
 		cliente.setId(1L);
 		cliente.setCodigo(1L);
-		cliente.setEndereco("Teste");
+		cliente.setEndereco("Pernanbuco");
 
 		Cliente cliente2 = new Cliente();
 		cliente2.setId(1L);
 		cliente2.setCodigo(1L);
-		cliente2.setEndereco("Teste");
+		cliente2.setEndereco("Pernanbuco");
 
 		this.clienteRepository.save(cliente);
 

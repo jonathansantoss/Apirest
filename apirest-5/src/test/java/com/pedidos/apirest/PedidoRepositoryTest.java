@@ -2,9 +2,7 @@ package com.pedidos.apirest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -41,12 +39,12 @@ public class PedidoRepositoryTest {
 		Cliente cliente = new Cliente();
 		cliente.setId(1L);
 		cliente.setCodigo(1L);
-		cliente.setEndereco("Teste");
+		cliente.setEndereco("Pernanbuco");
 
 		Produto produto = new Produto();
 		produto.setId(1L);
 		produto.setCodigo(1L);
-		produto.setNome("teste");
+		produto.setNome("HD");
 		produto.setPreco(20.00);
 
 		Pedidos pedido = new Pedidos();
@@ -57,14 +55,14 @@ public class PedidoRepositoryTest {
 		Cliente cliente2 = new Cliente();
 		cliente2.setId(1L);
 		cliente2.setCodigo(1L);
-		cliente2.setEndereco("Teste");
+		cliente2.setEndereco("Pernanbuco");
 
 		Produto produto2 = new Produto();
 		produto2.setId(1L);
 		produto2.setCodigo(1L);
-		produto2.setNome("teste");
+		produto2.setNome("HD");
 		produto2.setPreco(20.00);
-		
+
 		this.pedidoRepository.save(pedido);
 		this.produtoRepository.save(produto);
 		this.clienteRepository.save(cliente);
@@ -76,9 +74,9 @@ public class PedidoRepositoryTest {
 		assertThat(pedido.getCodigoCliente()).isEqualTo(cliente2);
 
 		// Produto
-		
-		for (Produto item : pedido.getCodigosProdutos()) {  assertThat(item).isEqualTo(produto2); }
-		
+		for (Produto item : pedido.getCodigosProdutos()) {
+			assertThat(item).isEqualTo(produto2);
+		}
 	}
 
 	@Test
@@ -86,40 +84,39 @@ public class PedidoRepositoryTest {
 		Cliente cliente = new Cliente();
 		cliente.setId(1L);
 		cliente.setCodigo(1L);
-		cliente.setEndereco("Teste");
+		cliente.setEndereco("Pernanbuco");
 
 		Produto produto = new Produto();
 		produto.setId(1L);
 		produto.setCodigo(1L);
-		produto.setNome("teste");
+		produto.setNome("HD");
 		produto.setPreco(20.00);
 
 		Pedidos pedido = new Pedidos();
-		pedido.setId(1L);
 		pedido.setCodigoCliente(cliente);
 		pedido.setCodigosProdutos(Arrays.asList(produto));
 		pedido.setValorTotal(200.00);
 
+		this.pedidoRepository.save(pedido);
+		this.produtoRepository.save(produto);
+		this.clienteRepository.save(cliente);
+
 		Cliente cliente2 = new Cliente();
 		cliente2.setId(1L);
 		cliente2.setCodigo(1L);
-		cliente2.setEndereco("Teste");
+		cliente2.setEndereco("Pernanbuco");
 
 		Produto produto2 = new Produto();
 		produto2.setId(1L);
 		produto2.setCodigo(1L);
-		produto2.setNome("teste");
+		produto2.setNome("HD");
 		produto2.setPreco(20.00);
 
 		Pedidos pedido2 = new Pedidos();
-		pedido2.setId(1L);
+		pedido2.setId(pedido.getId());
 		pedido2.setCodigoCliente(cliente2);
 		pedido2.setCodigosProdutos(Arrays.asList(produto2));
 		pedido2.setValorTotal(200.00);
-
-		this.pedidoRepository.save(pedido);
-		this.produtoRepository.save(produto);
-		this.clienteRepository.save(cliente);
 
 		Pedidos pedido3 = new Pedidos();
 		pedido3 = this.pedidoRepository.findOne(pedido2.getId());
