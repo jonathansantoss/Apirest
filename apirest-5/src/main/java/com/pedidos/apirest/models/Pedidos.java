@@ -48,9 +48,6 @@ public class Pedidos implements Serializable{
 		this.valorTotal = valorTotal;
 	}
 
-	public Pedidos() {
-	}
-
 	public Cliente getCodigoCliente() {
 		return codigoCliente;
 	}
@@ -66,7 +63,9 @@ public class Pedidos implements Serializable{
 	public void setCodigosProdutos(List<Produto> codigosProdutos) {
 		this.codigosProdutos = codigosProdutos;
 	}
-
+	
+	public Pedidos() { }
+	
 	public Pedidos(Long id, Cliente codigoCliente, List<Produto> codigosProdutos, Double valorTotal) {
 		super();
 		this.id = id;
